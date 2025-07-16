@@ -4,25 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kenangan Albi</title>
-  <link rel="stylesheet" href="style.css" />
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fff0f5;
+      background-color: #ffe6f2; /* 💗 pink cerah */
       text-align: center;
     }
 
-    h1.rainbow-text {
-      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-      -webkit-background-clip: text;
-      color: transparent;
-      font-weight: bold;
-      animation: shimmer 5s infinite linear;
-      margin-top: 40px;
-    }
+   h1.pink-title {
+  color: #ff66b2; /* 🌸 Pink cerah */
+  font-size: 28px;
+  margin-top: 40px;
+}
 
     @keyframes shimmer {
       from { background-position: 0%; }
@@ -40,16 +36,23 @@
     button {
       padding: 10px 20px;
       border-radius: 8px;
-      background-color: pink;
+      background-color: #ff99cc; /* 💗 pink terang */
       border: none;
       font-size: 16px;
       cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    button:hover {
+      background-color: #ff66b2;
     }
 
     footer {
       margin-top: 40px;
       padding: 20px;
-      background-color: #ffe6f2;
+      background-color: #ffd6ea; /* 💗 soft pink */
       font-weight: bold;
     }
 
@@ -78,7 +81,7 @@
 
 <body>
 
-  <h1 class="rainbow-text">🧸 Kenangan Albi 🧸</h1>
+  <h1 class="pink-title">🧸 Kenangan Albi 🧸</h1>
 
   <div class="photos">
     <img src="starboy.jpg" alt="Foto 1">
@@ -91,10 +94,10 @@
   <div style="margin-top: 30px;">
     <button onclick="showStory()">💌 Cerita Albi 💌</button>
     <div id="story" style="display: none; margin-top: 20px;">
-      <p>📍 Awal kenalan: 7 April 2025</p>
-      <p>💬 Chat Setiap Hari 24jam WKWK</p>
-      <p>✨ First Date Di BLOK M</p>
-      <p>📸 Banyak momen lucu bareng</p>
+      <p>📍 Awal kenalan: 7 April 2025 📍</p>
+      <p>💬 Chattan setiap hari WKWK 💬</p>
+      <p>✨ First Date di BLOK M ✨</p>
+      <p>📸 Banyak momen lucu bareng 📸</p>
       <p>❤️ Semoga langgeng terus ❤️</p>
     </div>
   </div>
