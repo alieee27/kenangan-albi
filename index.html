@@ -3,41 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kenangan albi</title>
+  <title>Kenangan Albi</title>
   <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>💑 Kenangan albi 💑</h1>
-    <p>🌸 Sejak 05 Mei 2025 🌸</p>
-  </header>
 
-  <section class="gallery">
-    <div class="photo-card">
-      <img src="fotoboth 1.jpg" alt="Foto 1" />
-      <p>fotoboth PART 1 </p>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff0f5;
+      text-align: center;
+    }
+
+    h1.rainbow-text {
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: bold;
+      animation: shimmer 5s infinite linear;
+      margin-top: 40px;
+    }
+
+    @keyframes shimmer {
+      from { background-position: 0%; }
+      to { background-position: 100%; }
+    }
+
+    .photos img {
+      width: 150px;
+      height: auto;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      background-color: pink;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #ffe6f2;
+      font-weight: bold;
+    }
+
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      animation: fall 5s linear infinite;
+      color: pink;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="rainbow-text">🧸 Kenangan Albi 🧸</h1>
+
+  <div class="photos">
+    <img src="starboy.jpg" alt="Foto 1">
+    <img src="pendaftara unpam.jpg" alt="Foto 2">
+    <img src="fotoboth.jpg" alt="Foto 3">
+    <img src="Jogging.jpg" alt="Foto 4">
+    <img src="fotoboth 1.jpg" alt="Foto 5">
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="showStory()">💌 Cerita Albi 💌</button>
+    <div id="story" style="display: none; margin-top: 20px;">
+      <p>📍 Awal kenalan: 7 April 2025</p>
+      <p>💬 Chat Setiap Hari 24jam WKWK</p>
+      <p>✨ First Date Di BLOK M</p>
+      <p>📸 Banyak momen lucu bareng</p>
+      <p>❤️ Semoga langgeng terus ❤️</p>
     </div>
-    <div class="photo-card">
-      <img src="Jogging.jpg" alt="Foto 2" />
-      <p>First Jogging </p>
-    </div>
-    <div class="photo-card">
-      <img src="fotoboth.jpg" alt="Foto 3" />
-      <p>fotoboth PART 2 </p>
-    </div>
-    <div class="photo-card">
-      <img src="pendaftara unpam.jpg" alt="Foto 4" />
-      <p>ini wktu nganterin dia ngmbil Almet & KTM </p>
-    </div>
-    <div class="photo-card">
-      <img src="starboy.jpg" alt="Foto 5" />
-      <p>foto bareng starboy priok haha </p>
-    </div>
-  </section>
+  </div>
 
   <footer>
     <p>🌟 Dibuat oleh aliee ganteng 🌟</p>
   </footer>
+
+  <!-- ANIMASI LOVE JATUH -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 10 + "px";
+      heart.innerText = "💖";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+  <!-- CERITA TIMELINE -->
+  <script>
+    function showStory() {
+      const story = document.getElementById("story");
+      story.style.display = (story.style.display === "none") ? "block" : "none";
+    }
+  </script>
+
 </body>
 </html>
-
