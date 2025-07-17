@@ -4,129 +4,155 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kenangan Albi</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
+      background-color: #ffd6ec;
+      color: #333;
       margin: 0;
       padding: 0;
-      background-color: #ffe6f2; /* 💗 pink cerah */
+      transition: background 0.3s;
+    }
+
+    .dark {
+      background-color: #cceeff;
+      color: #000;
+    }
+
+    header {
       text-align: center;
-    }
-
-   h1.pink-title {
-  color: #ff66b2; /* 🌸 Pink cerah */
-  font-size: 28px;
-  margin-top: 40px;
-}
-
-    @keyframes shimmer {
-      from { background-position: 0%; }
-      to { background-position: 100%; }
-    }
-
-    .photos img {
-      width: 150px;
-      height: auto;
-      margin: 10px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    button {
-      padding: 10px 20px;
-      border-radius: 8px;
-      background-color: #ff99cc; /* 💗 pink terang */
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
+      padding: 1rem;
+      background-color: #ff69b4;
       color: white;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-size: 2rem;
     }
 
-    button:hover {
-      background-color: #ff66b2;
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 1rem;
+    }
+
+    .gallery img {
+     max-width: 150px;
+     height: auto;
+     aspect-ratio: 3/4;
+     object-fit: cover;
+     border: 4px dashed #ff69b4;
+     border-radius: 10px;
+     transition: transform 0.3s;
+    }
+
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .timeline {
+      margin: 2rem auto;
+      padding: 1rem;
+      max-width: 600px;
+      background: #fff0f5;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    .event {
+      margin: 10px 0;
+      padding-left: 10px;
+      border-left: 3px solid #ff69b4;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .controls button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .secret, #boneka {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .secret:hover {
+      cursor: pointer;
+      color: #ff1493;
     }
 
     footer {
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #ffd6ea; /* 💗 soft pink */
-      font-weight: bold;
-    }
-
-    .heart {
-      position: fixed;
-      top: -10px;
-      font-size: 20px;
-      animation: fall 5s linear infinite;
-      color: pink;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
+      text-align: center;
+      padding: 1rem;
+      background-color: #ffb6c1;
+      color: #222;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-
 <body>
+  <header style="color:#fff8fb;">🧸 Kenangan Albi 🧸</header>
 
-  <h1 class="pink-title">🧸 Kenangan Albi 🧸</h1>
-
-  <div class="photos">
+  <div class="gallery">
     <img src="starboy.jpg" alt="Foto 1">
     <img src="pendaftara unpam.jpg" alt="Foto 2">
     <img src="fotoboth.jpg" alt="Foto 3">
     <img src="Jogging.jpg" alt="Foto 4">
     <img src="fotoboth 1.jpg" alt="Foto 5">
+    <img src="ganteng.jpg" alt="Foto 6">
+    <img src="gacoan.jpg" alt="Foto 7">
+    <img src="tangan.jpg" alt="Foto 8">
+    <img src="blok m.jpg" alt="Foto 9">
+    <img src="kopi.jpg" alt="Foto 10">
+    <img src="cantik.jpg" alt="Foto 11">
+    <img src="sate.jpg" alt="Foto 12">
+    <img src="depan gang.jpg" alt="Foto 13">
+    <img src="duajari.jpg" alt="Foto 14">
   </div>
 
-  <div style="margin-top: 30px;">
-    <button onclick="showStory()">💌 Cerita Albi 💌</button>
-    <div id="story" style="display: none; margin-top: 20px;">
-      <p>📍 Awal kenalan: 7 April 2025 📍</p>
-      <p>💬 Chattan setiap hari WKWK 💬</p>
-      <p>✨ First Date di BLOK M ✨</p>
-      <p>📸 Banyak momen lucu bareng 📸</p>
-      <p>❤️ Semoga langgeng terus ❤️</p>
-    </div>
+  <div class="controls">
+    <button onclick="showLove()">💖 Aku Sayang Kamu 💖</button>
+    <button onclick="toggleBear()">🎁 Hadiah Buat Kamu 🎁</button>
+    <button onclick="toggleMode()">🌙 Ganti Tema 🌙</button>
+  </div>
+
+  <div id="boneka" style="display:none; font-size: 2rem;">Hai, Nih boneka buat kamu!🧸</div>
+
+  <div class="secret" onclick="alert('Kamu cantik banget hari ini sayang 🥰')">
+    Klik sini, ada pesan rahasia!
+  </div>
+
+  <div class="timeline">
+    <h3>📖 Cerita Kita 📖</h3>
+    <div class="event">📍 Awal kenalan: 7 April 2025 📍</div>
+    <div class="event">✨ First Date di BLOK M ✨</div>
+    <div class="event">📸 Banyak momen lucu bareng 📸</div>
   </div>
 
   <footer>
-    <p>🌟 Dibuat oleh aliee ganteng 🌟</p>
+    🌟 Dibuat oleh aliee ganteng 🌟
   </footer>
 
-  <!-- ANIMASI LOVE JATUH -->
   <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 10 + "px";
-      heart.innerText = "💖";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
+    function showLove() {
+      alert("Aku juga sayang bangett sama kamu! 💘");
     }
-    setInterval(createHeart, 300);
-  </script>
-
-  <!-- CERITA TIMELINE -->
-  <script>
-    function showStory() {
-      const story = document.getElementById("story");
-      story.style.display = (story.style.display === "none") ? "block" : "none";
+    function toggleBear() {
+      const b = document.getElementById('boneka');
+      b.style.display = b.style.display === 'none' ? 'block' : 'none';
+    }
+    function toggleMode() {
+      document.body.classList.toggle("dark");
     }
   </script>
-
 </body>
 </html>
