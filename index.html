@@ -11,6 +11,7 @@
       color: #333;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
       transition: background 0.3s;
     }
 
@@ -21,53 +22,36 @@
 
     header {
       text-align: center;
-      padding: 1rem;
+      padding: 1.2rem;
       background-color: #ff69b4;
-      color: white;
+      color: #fff8fb;
       font-size: 2rem;
     }
 
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
       padding: 1rem;
     }
 
     .gallery img {
-     max-width: 150px;
-     height: auto;
-     aspect-ratio: 3/4;
-     object-fit: cover;
-     border: 4px dashed #ff69b4;
-     border-radius: 10px;
-     transition: transform 0.3s;
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border: 4px dashed #ffb6c1;
+      border-radius: 12px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-
 
     .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .timeline {
-      margin: 2rem auto;
-      padding: 1rem;
-      max-width: 600px;
-      background: #fff0f5;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
-    .event {
-      margin: 10px 0;
-      padding-left: 10px;
-      border-left: 3px solid #ff69b4;
+      transform: scale(1.03);
     }
 
     .controls {
       text-align: center;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .controls button {
@@ -77,17 +61,45 @@
       padding: 10px 20px;
       border-radius: 20px;
       cursor: pointer;
-      margin: 5px;
+      margin: 6px;
+      font-size: 0.95rem;
     }
 
-    .secret, #boneka {
+    #boneka {
       text-align: center;
-      margin-top: 1rem;
+      font-size: 1.8rem;
+      margin: 1rem;
+      display: none;
     }
 
-    .secret:hover {
+    .secret {
+      text-align: center;
+      margin: 1rem;
+      font-weight: bold;
       cursor: pointer;
-      color: #ff1493;
+      color: #d63384;
+    }
+
+    .timeline {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff0f5;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    .timeline h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .event {
+      padding: 10px;
+      margin: 6px 0;
+      border-left: 4px solid #ff69b4;
+      background-color: #ffe4f1;
+      border-radius: 5px;
     }
 
     footer {
@@ -95,13 +107,35 @@
       padding: 1rem;
       background-color: #ffb6c1;
       color: #222;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    /* ANIMASI LOVE JATUH */
+    .love {
+      position: fixed;
+      top: -30px;
+      font-size: 20px;
+      animation: fall 5s linear infinite;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-40px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header style="color:#fff8fb;">🧸 Kenangan Albi 🧸</header>
+  <header>🧸 Kenangan Albi 🧸</header>
 
+  <!-- Galeri Foto -->
   <div class="gallery">
     <img src="starboy.jpg" alt="Foto 1">
     <img src="pendaftara unpam.jpg" alt="Foto 2">
@@ -119,40 +153,65 @@
     <img src="duajari.jpg" alt="Foto 14">
   </div>
 
+  <!-- Tombol Interaktif -->
   <div class="controls">
     <button onclick="showLove()">💖 Aku Sayang Kamu 💖</button>
     <button onclick="toggleBear()">🎁 Hadiah Buat Kamu 🎁</button>
     <button onclick="toggleMode()">🌙 Ganti Tema 🌙</button>
   </div>
 
-  <div id="boneka" style="display:none; font-size: 2rem;">Hai, Nih boneka buat kamu!🧸</div>
+  <!-- Boneka -->
+  <div id="boneka">alooo cantikk, nih boneka buat kamu wkwk 🧸</div>
 
+  <!-- Pesan Rahasia -->
   <div class="secret" onclick="alert('Kamu cantik banget hari ini sayang 🥰')">
     Klik sini, ada pesan rahasia!
   </div>
 
+  <!-- Timeline -->
   <div class="timeline">
     <h3>📖 Cerita Kita 📖</h3>
-    <div class="event">📍 Awal kenalan: 7 April 2025 📍</div>
+    <div class="event">📍 Awal kenalan : 7 April 2025 📍</div>
     <div class="event">✨ First Date di BLOK M ✨</div>
     <div class="event">📸 Banyak momen lucu bareng 📸</div>
   </div>
 
+  <!-- Footer -->
   <footer>
     🌟 Dibuat oleh aliee ganteng 🌟
   </footer>
 
+  <!-- LOVE FALL SCRIPT -->
   <script>
     function showLove() {
       alert("Aku juga sayang bangett sama kamu! 💘");
     }
+
     function toggleBear() {
       const b = document.getElementById('boneka');
       b.style.display = b.style.display === 'none' ? 'block' : 'none';
     }
+
     function toggleMode() {
       document.body.classList.toggle("dark");
     }
+
+    // LOVE FALL FUNCTION
+    function createLove() {
+      const love = document.createElement("div");
+      love.classList.add("love");
+      love.style.left = Math.random() * 100 + "vw";
+      love.style.fontSize = (Math.random() * 10 + 16) + "px";
+      love.innerText = "❤️";
+      document.body.appendChild(love);
+
+      setTimeout(() => {
+        love.remove();
+      }, 5000);
+    }
+
+    setInterval(createLove, 400); // Muncul setiap 400ms
   </script>
 </body>
 </html>
+    
